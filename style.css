@@ -1,0 +1,255 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Palette */
+
+:root {
+  --color-bg: #f7f3ec;
+  --color-ink: #2b2420;
+  --color-muted: #5c5349;
+  --color-accent: #8c3a2b;
+  --color-accent-hover: #6f2c20;
+  --color-border: #e6ddd0;
+}
+
+/* Base typography and layout */
+
+body {
+  font-family: Georgia, "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  line-height: 1.65;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Header */
+
+header {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 0.75rem;
+}
+
+.strapline {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* Category list */
+
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-list li {
+  margin-bottom: 2.5rem;
+}
+
+.category-list li:last-child {
+  margin-bottom: 0;
+}
+
+.category-list h2 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 0 0 0.35rem;
+}
+
+.category-list p {
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Live category link */
+
+.category-list a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.category-list a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Inactive category — same heading size and weight as a live one,
+   coloured to signal it isn't a link */
+
+.category-list li.inactive h2 {
+  color: var(--color-muted);
+}
+
+/* Article pages */
+
+article section {
+  margin-bottom: 3rem;
+}
+
+article section:last-child {
+  margin-bottom: 0;
+}
+
+article h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0 0 1rem;
+}
+
+article h3 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin: 0 0 0.4rem;
+}
+
+/* Inline source markers */
+
+.source-marker {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.source-marker:hover {
+  text-decoration: underline;
+}
+
+/* Give consecutive markers ([S3][S4]) a little air so they don't
+   read as one mark */
+
+sup + sup {
+  margin-left: 0.15em;
+}
+
+/* Disputed and mythologised — a left border marks it as a distinct
+   component; no background tint, so it reads as the best-evidenced
+   part of the article rather than a warning box */
+
+.disputed {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+}
+
+.disputed h2 {
+  color: var(--color-accent);
+}
+
+.claim {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.claim:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Same treatment for all three tags — Myth, Overstated, Unproven —
+   the word itself carries the distinction, not the colour */
+
+.claim-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  border: 1px solid var(--color-muted);
+  border-radius: 2px;
+  padding: 0.1rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Sources */
+
+.sources-list {
+  padding-left: 1.5rem;
+}
+
+.sources-list li {
+  margin-bottom: 0.75rem;
+}
+
+.sources-list a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.sources-list a:hover {
+  color: var(--color-accent-hover);
+}
+
+.sources-list li:target {
+  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  padding: 0.25rem 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 2px;
+}
+
+/* Category pages */
+
+.site-link {
+  margin: 0 0 2rem;
+}
+
+.site-link a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.site-link a:hover {
+  text-decoration: underline;
+}
+
+.article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-list li {
+  margin-bottom: 1.5rem;
+}
+
+.article-list li:last-child {
+  margin-bottom: 0;
+}
+
+.article-list h2 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.article-list a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.article-list a:hover {
+  color: var(--color-accent-hover);
+}
+
+.year {
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
