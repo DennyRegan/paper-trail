@@ -47,6 +47,17 @@ Do not create subcategory folders. Do not propose a taxonomy.
 File names are lowercase, hyphenated, and end with the anchor year:
 `apalachin-1957.html`, `battle-of-britain-1940.html`.
 
+## Navigation
+
+Every page below the homepage carries a back-link to its parent, styled as
+`.site-link` and placed at the top of the page above the `h1`.
+
+- Category pages link back to the homepage: `← The Paper Trail`
+- Article pages link back to their category: `← Italian-American Mafia`
+
+There is no navigation bar and no breadcrumb trail. The back-link is the
+only navigation on the site.
+
 ## Category pages
 
 Articles are listed in chronological order by anchor date — earliest at the
@@ -57,6 +68,19 @@ it is the date they came into being.
 
 Articles too broad to place on a timeline go in a short "Background" group
 above the chronological list.
+
+A subsection grouping several related articles takes its position in the
+chronological list from its earliest article. Within the subsection, the
+articles are listed chronologically in the same way.
+
+Where every article in a subsection falls in the same year, the year is
+shown once, on the subsection heading, and each article inside it shows
+its month instead.
+
+A subsection is marked up as an `<li class="subsection">` in the outer
+article list, containing an `h3.subsection-heading` with the year in a
+`.year` span, and a nested `<ul class="article-list">` holding the
+articles.
 
 Ordering is maintained by hand in the HTML. Do not build sorting logic, do
 not store dates as data, do not add JavaScript for this.
@@ -76,6 +100,20 @@ linking down to the matching source list entry.
 
 Section 3 is the most important part of the site and should be styled as a
 substantial component in its own right, not as a footnote or an aside.
+
+Each claim in section 3 carries one tag: **Myth**, **Overstated** or
+**Unproven**.
+
+Where a source has no accessible online text, it is still listed with a
+complete citation and a note saying that no accessible copy was located.
+Where a printed work has no accessible online text, link to a library or
+publisher record for the edition rather than leaving the entry unlinked.
+An entry stays unlinked only where no such record exists.
+
+In the source list, the link text is the citation only. Access and
+provenance notes — a redacted file, an untranslated foreign-language
+document, testimony that is retrospective, whose opinion within a case a
+citation refers to — sit outside the link, as plain text after it.
 
 ## Design direction
 

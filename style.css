@@ -253,3 +253,17 @@ sup + sup {
   font-size: 1rem;
   margin-left: 0.5rem;
 }
+
+/* Subsection headings within the chronological list — group several
+   related articles together. Sits between the h1 category heading and
+   the h2 article titles: smaller and quieter than either, so it reads
+   as a grouping label rather than a heading of its own weight. */
+
+.subsection-heading {
+  font-size: 0.95rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+}
