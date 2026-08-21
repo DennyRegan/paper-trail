@@ -22,41 +22,54 @@ body {
   --color-accent-hover: #6e1414;
   --color-border: #e6ddd0;
 
-  /* Type — a system serif stack led by Iowan Old Style (macOS/iOS'
-     own book face) rather than a hosted or CDN font, so headings and
-     body share one typeface with real editorial weight and nothing
-     to download. Two fluid sizes cover display text (masthead,
-     category and article titles) so it scales smoothly between phone
-     and desktop; everything smaller is a fixed rem step. */
+  /* Type — two system serifs, not one, so headlines and body read as
+     deliberately different registers rather than the same face at
+     different sizes. Body copy stays in Iowan Old Style (macOS/iOS'
+     book face) for long-form comfort. Headings (h1–h3, so the site
+     name, category names and article titles all pick it up) use Big
+     Caslon — a proper display serif with real editorial character —
+     falling back to Times New Roman elsewhere rather than repeating
+     the body face. Nothing hosted or downloaded either way. */
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-display: "Big Caslon", "Times New Roman", Georgia, serif;
 
   --font-size-xs: 0.8rem;
   --font-size-sm: 0.9375rem;
   --font-size-base: 1.125rem;
   --font-size-md: 1.375rem;
   --font-size-lg: 1.75rem;
-  --font-size-display: clamp(2.25rem, 1.7rem + 2.5vw, 3.25rem);
-  --font-size-display-lg: clamp(2.75rem, 1.9rem + 4vw, 4.5rem);
+  --font-size-display: clamp(2rem, 1.5rem + 3vw, 3rem);
+  --font-size-display-lg: clamp(3rem, 2.2rem + 5vw, 5rem);
 
   --leading-tight: 1.15;
   --leading-normal: 1.4;
   --leading-loose: 1.7;
 
   /* Spacing — one scale, reused everywhere instead of one-off values,
-     so "generous space" means the same gap throughout the site. */
+     so "generous space" means the same gap throughout the site. The
+     two largest steps are deliberately smaller by default and only
+     open up at the tablet+ breakpoint below — full desktop-generous
+     spacing read as too much air in the hand on a phone. */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1.25rem;
   --space-5: 2rem;
   --space-6: 3rem;
-  --space-7: 4.5rem;
-  --space-8: 6rem;
+  --space-7: 3rem;
+  --space-8: 2.5rem;
 
   /* A 65–70 character reading measure, in ch rather than rem so it
      holds regardless of font substitution. */
   --measure: 68ch;
   --gutter: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --space-7: 4.5rem;
+    --space-8: 6rem;
+  }
 }
 
 /* Base typography and layout */
@@ -79,18 +92,34 @@ header {
   margin-bottom: var(--space-6);
 }
 
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
 h1 {
   font-size: var(--font-size-display);
   line-height: var(--leading-tight);
   font-weight: normal;
+  letter-spacing: -0.01em;
   margin: 0 0 0.75rem;
 }
 
 .strapline {
   color: var(--color-muted);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
   max-width: 32ch;
   margin: 0;
+}
+
+@media (min-width: 40rem) {
+  .masthead {
+    padding-top: var(--space-5);
+  }
+
+  .strapline {
+    font-size: var(--font-size-md);
+  }
 }
 
 /* Homepage masthead — the hero image (if images/paper.jpg exists) is
@@ -102,9 +131,15 @@ h1 {
 .masthead {
   position: relative;
   isolation: isolate;
-  padding-top: var(--space-5);
-  margin-bottom: var(--space-8);
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-5);
   overflow: hidden;
+}
+
+@media (min-width: 40rem) {
+  .masthead {
+    margin-bottom: var(--space-8);
+  }
 }
 
 .masthead-image {
@@ -124,6 +159,16 @@ h1 {
 .masthead-content {
   position: relative;
   z-index: 1;
+}
+
+/* The one h1 on the whole site that gets the larger display size —
+   every other page's h1 (category, article) uses the standard
+   --font-size-display, a full step down, so the site name reads as
+   the top of the hierarchy rather than the same size as everything
+   under it. */
+
+.masthead h1 {
+  font-size: var(--font-size-display-lg);
 }
 
 @media (min-width: 40rem) {
@@ -150,7 +195,13 @@ h1 {
 }
 
 .category {
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
+}
+
+@media (min-width: 40rem) {
+  .category {
+    margin-bottom: var(--space-8);
+  }
 }
 
 .category:last-child {
@@ -161,7 +212,7 @@ h1 {
   display: block;
   color: inherit;
   text-decoration: none;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
 }
 
 .category-index {
@@ -169,7 +220,7 @@ h1 {
   color: var(--color-accent);
   font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .category-rule {
@@ -177,21 +228,34 @@ h1 {
   height: 2px;
   background-color: var(--color-accent);
   border: none;
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-2);
 }
 
+/* Three categories only, so the whole homepage should read as one
+   composed view rather than a scroll — the name and description get
+   their own tighter, capped-height treatment here rather than reusing
+   the same sizes as everything else, and widen back out at 40rem
+   where there's room to spare. The description is hard-capped at two
+   lines: it's written as one editorial line, so on a width where it
+   wraps further this is a safety ceiling, not a truncation risk. */
+
 .category-name {
-  font-size: var(--font-size-display);
+  font-size: clamp(1.5rem, 1.15rem + 3vw, var(--font-size-display));
   line-height: var(--leading-tight);
   font-weight: normal;
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-2);
 }
 
 .category-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   color: var(--color-muted);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-normal);
   max-width: var(--measure);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-2);
 }
 
 .category-cta {
@@ -203,6 +267,18 @@ h1 {
   text-underline-offset: 0.15em;
   font-size: var(--font-size-sm);
   letter-spacing: 0.03em;
+}
+
+@media (min-width: 40rem) {
+  .category-name {
+    font-size: var(--font-size-display);
+  }
+
+  .category-desc {
+    -webkit-line-clamp: initial;
+    font-size: var(--font-size-base);
+    line-height: var(--leading-loose);
+  }
 }
 
 .category-link:hover .category-cta {
@@ -221,8 +297,14 @@ h1 {
 /* Site mark — closes the homepage below the last category. */
 
 .site-mark {
-  margin-top: var(--space-8);
+  margin-top: var(--space-5);
   text-align: center;
+}
+
+@media (min-width: 40rem) {
+  .site-mark {
+    margin-top: var(--space-8);
+  }
 }
 
 .site-mark .mark-rule {
