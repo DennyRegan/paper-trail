@@ -24,6 +24,15 @@ Deployment is GitHub → Vercel.
 If you think something needs a dependency, say so and explain why before
 adding it. Do not add one unprompted.
 
+## Git
+
+Check the current branch before any commit or push. Do not assume the
+working directory is on the intended branch.
+
+Feature branches for anything that changes the site's appearance or
+structure. Merge to `main` only after checking the Vercel preview.
+Delete the branch after merging.
+
 ## File structure
 
 ```
