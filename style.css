@@ -561,3 +561,19 @@ sup + sup {
 .subsection .article-list {
   padding-left: var(--space-4);
 }
+
+/* Dark mode — colour tokens only. Every colour in this stylesheet
+   already runs through the six custom properties below, so
+   redefining them here is the entire dark theme: no layout, spacing
+   or type rule needs to change anywhere else in the file. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14110f;
+    --color-ink: #e6e1d8;
+    --color-muted: #9c9284;
+    --color-accent: #e0574a;
+    --color-accent-hover: #ef7266;
+    --color-border: #2c241d;
+  }
+}
