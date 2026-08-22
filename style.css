@@ -208,6 +208,25 @@ h1 {
   margin-bottom: 0;
 }
 
+/* Inactive category — a category with no published articles yet.
+   Reuses .category-name wholesale (same size, weight and typeface as
+   a live one) so it holds its place in the rhythm of the list; muted
+   colour and the absence of a link, index number, rule or chevron is
+   what marks it as not-yet-live. No description line either — there's
+   no content yet to describe. */
+
+.category-inactive {
+  margin-bottom: var(--space-3);
+}
+
+.category-inactive:last-child {
+  margin-bottom: 0;
+}
+
+.category-inactive .category-name {
+  color: var(--color-muted);
+}
+
 .category-link {
   display: block;
   color: inherit;
