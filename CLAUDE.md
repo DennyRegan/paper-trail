@@ -11,7 +11,10 @@ reader can see how much weight each claim actually bears. Established fact,
 strongly supported claim, allegation, disputed history and repeated myth are
 shown as different things. Everything in the design should serve that.
 
-Structure is deliberately simple: homepage → category → article.
+Structure is deliberately simple: homepage → category → article. A
+category broad enough to need it can insert one further listing page
+between itself and its articles — see Nested categories below — but
+that stays the exception, not the default.
 
 ## Stack
 
@@ -42,8 +45,10 @@ mafia/
   index.html            category page — lists articles
   apalachin-1957.html   article
   valachi-1963.html     article
+military/
+  index.html            category page — lists conflicts, not articles
 ww2/
-  index.html
+  index.html            conflict page — lists articles, flat, as normal
   ...
 ```
 
@@ -63,9 +68,12 @@ Every page below the homepage carries a back-link to its parent, styled as
 
 - Category pages link back to the homepage: `← The Paper Trail`
 - Article pages link back to their category: `← Italian-American Mafia`
+- A nested category page links back to the top-level category it sits
+  under, not the homepage: Second World War links `← Military History`
 
 There is no navigation bar and no breadcrumb trail. The back-link is the
-only navigation on the site.
+only navigation on the site — always exactly one link, to whatever the
+page's immediate parent is, however many levels deep that page sits.
 
 ## Category pages
 
@@ -93,6 +101,25 @@ articles.
 
 Ordering is maintained by hand in the HTML. Do not build sorting logic, do
 not store dates as data, do not add JavaScript for this.
+
+## Nested categories
+
+A top-level category can list conflicts, trials or other groupings
+instead of articles directly, each one linking out to its own full
+category-style page rather than being embedded in-page. Military History
+does this: it lists conflicts, and Second World War is one such page,
+reached via a link rather than an in-page subsection.
+
+This is a different thing from the in-page subsection described above,
+which groups articles within a single listing page. Use a nested category
+page when a topic is substantial enough to carry a full page of its own;
+use an in-page subsection when it isn't.
+
+A linked-to page is still a flat, sibling folder at the site root —
+`ww2/` is not inside `military/`. Its articles stay exactly where they
+were: flat inside `ww2/`, never moved, never inside a further subfolder.
+This is the same "listing page, not a folder" rule the File structure
+section already sets for subcategories generally.
 
 ## Article pages
 
