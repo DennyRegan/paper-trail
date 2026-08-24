@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Method — The Paper Trail</title>
+<meta name="description" content="How articles on The Paper Trail are researched, written, checked and corrected — and what the claim tags mean.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html">The Paper Trail</a>
+</header>
+
+<article>
+
+  <header>
+    <h1>Method</h1>
+  </header>
+
+  <section id="what-this-is">
+    <h2>What this is</h2>
+    <p>The Paper Trail publishes long-form articles on specific, well-documented historical events. Each one is written from documents that have been opened and read, and each claim in it carries a marker linking to the source it rests on.</p>
+    <p>The point of the site is not the writing. It is that a reader can see how much weight each claim actually bears. Established fact, exaggeration, allegation and repeated myth look like different things here, because they are different things.</p>
+    <p>This is not original research. No archives are visited, no interviews are conducted, no documents are unearthed. What the site does is read the available record carefully, state what it establishes, and mark plainly where the popular version of a story has gone beyond it.</p>
+  </section>
+
+  <section id="tags">
+    <h2>The claim tags</h2>
+    <p>Every article has a section called <em>Disputed and mythologised</em>. It is the most important part of each article, and it is where the popular version of a story is set against the record. Each claim in it carries one of three tags.</p>
+
+    <div class="claim">
+      <span class="claim-tag">Myth</span>
+      <h3>Contradicted by the record.</h3>
+      <p>Not merely unsupported. There is documentary evidence that the claim is false, and it is cited.</p>
+    </div>
+
+    <div class="claim">
+      <span class="claim-tag">Overstated</span>
+      <h3>True in substance, exaggerated in the telling.</h3>
+      <p>Something real sits underneath, but the version in general circulation has grown past it — a number inflated, a gradual change compressed into a single moment, a plausible inference hardened into fact.</p>
+    </div>
+
+    <div class="claim">
+      <span class="claim-tag">Unproven</span>
+      <h3>Widely repeated, with no evidence either way.</h3>
+      <p>The claim may well be true. It has not been established, and the absence of proof is not itself proof of the opposite.</p>
+    </div>
+
+    <p>One distinction is worth stating on its own, because it is a common error and an easy one to make in either direction. That something was not proved in court does not mean there was no evidence for it. An acquittal establishes that a prosecution failed to secure a conviction to the criminal standard. It does not disprove every factual inference the evidence supports, and it is not an exoneration. Where an article turns on this, it says which of the two it means.</p>
+  </section>
+
+  <section id="sources">
+    <h2>Sources</h2>
+    <p>Every source entry carries a URL or a DOI, so any claim can be followed back to the document it came from. Court opinions, official archives, government document series and published scholarship are preferred, in roughly that order, and a primary document is preferred to a description of it wherever one is available.</p>
+    <p>Where a source could only be consulted in part, the source list says so. A book available only as excerpts, an article whose references could be read but whose text sits behind an access barrier, a document that exists only in the original language — each is marked as such in the entry. This matters because a claim resting on a partial reading is weaker than one resting on a full text, and a reader cannot judge that unless they are told.</p>
+  </section>
+
+  <section id="gaps">
+    <h2>Gaps in the record</h2>
+    <p>Each article ends with a section listing what is genuinely unknown about its subject.</p>
+    <p>These are limits of the sources used in that article. They are not claims about what the archives contain. If an article says that no financial records tying transactions to a meeting appear in the sources consulted, that is a statement about the reading behind the article — not an assertion that no such records exist anywhere. Whether they do is an open question, and the section is written to keep it open rather than to close it.</p>
+  </section>
+
+  <section id="how-articles-are-made">
+    <h2>How the articles are made</h2>
+    <p>The articles are produced with the assistance of large language models, in a process designed around the fact that these models are unreliable in a specific and predictable way. On subjects thick with repeated falsehood — which is most of what this site covers — a model's errors tend to correlate with the myths in the material it was trained on. It will reproduce a well-travelled story confidently, because the story is well travelled.</p>
+    <p>Four stages, and the separation between them is the whole design:</p>
+    <ol>
+      <li>A model with web access compiles a source list: what documents exist, opened and described. No prose, no narrative, no conclusions.</li>
+      <li>A model from a different vendor writes the article from those sources.</li>
+      <li>A model from the first vendor checks the finished article against the sources, adversarially, claim by claim.</li>
+      <li>Corrections are applied by hand, one at a time, and a verification finding is not accepted automatically. Where a proposed correction conflicts with the document, the document wins.</li>
+    </ol>
+    <p>The checking model is deliberately not the drafting model. A model asked to check its own work agrees with itself. Using a different vendor at the checking stage catches errors that a same-vendor check demonstrably does not — this is not a theoretical precaution, and articles have been corrected because of it.</p>
+    <p>Two or three of the load-bearing primary documents in each article are also opened and read directly, before the automated check rather than after. A model's summary of a document is an assertion about that document, not verification of it.</p>
+    <p>None of this makes the process infallible, and it is not offered as a reason to take the articles on trust. The reason to trust a claim here is the source attached to it. Every one of them is linked; they can be read.</p>
+  </section>
+
+  <section id="corrections">
+    <h2>Corrections</h2>
+    <p>Errors that reach publication are corrected rather than quietly removed, and substantive changes to a published article are recorded with the date and what changed. A site arguing for the difference between what is established and what is merely asserted has no business editing itself silently.</p>
+  </section>
+
+  <section id="scope">
+    <h2>Scope</h2>
+    <p>Articles cover subjects where a documentary record exists and a popular version of the story has grown away from it. Some subjects are deliberately not covered here, and their absence is a decision rather than an oversight.</p>
+    <p>Living people are written about only from convictions, court records or contemporaneous mainstream reporting, attributed in each case.</p>
+  </section>
+
+</article>
+
+<footer class="site-footer">
+  <a href="index.html">Home</a>
+  <a href="method.html">Method</a>
+</footer>
+
+</body>
+</html>
