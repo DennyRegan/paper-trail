@@ -234,14 +234,6 @@ h1 {
   padding: var(--space-1) 0;
 }
 
-.category-index {
-  display: block;
-  color: var(--color-accent);
-  font-size: var(--font-size-sm);
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-1);
-}
-
 .category-rule {
   width: 2.5rem;
   height: 2px;
